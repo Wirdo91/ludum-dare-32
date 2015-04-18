@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     private Vector2 startPos = Vector2.zero, endPos = Vector2.zero;
     private Vector2 curDir = Vector2.zero;
 
+    [SerializeField]
     StashItem currentItem = null;
 
     [SerializeField]
@@ -60,6 +61,11 @@ public class Enemy : MonoBehaviour
         }
 
         this.transform.Translate(curDir.normalized * moveSpeed * Time.deltaTime);
+
+        if (currentItem != null)
+        {
+            currentItem.transform.position = this.transform.position + (Vector3)curDir * 0.2f;
+        }
     }
 
     void OnBecameInvisible()
@@ -68,12 +74,11 @@ public class Enemy : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.transform.GetComponent<PlayerStash>() != null)
         {
             currentItem = col.transform.GetComponent<PlayerStash>().TakeItem();
-            currentItem.transform.position = this.transform.position + (Vector3)curDir;
         }
     }
 
