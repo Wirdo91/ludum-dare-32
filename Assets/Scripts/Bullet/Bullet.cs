@@ -16,7 +16,12 @@ public abstract class Bullet : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        transform.Translate(Vector2.right * Time.deltaTime, Space.Self);
+        transform.Translate(Vector2.right * Time.deltaTime * 10, Space.Self);
         this.GetComponent<SpriteRenderer>().sprite = bulletSprites[Random.Range(0, bulletSprites.Length)];
+    }
+
+    public virtual void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
     }
 }

@@ -15,11 +15,13 @@ public class Player : MonoBehaviour
 	void Start ()
     {
         MoveSpeed = 5;
+        CurrentWeapon.start();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
+        CurrentWeapon.update();
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 dir = Vector2.zero;
         if (Input.GetKey(KeyCode.W))
