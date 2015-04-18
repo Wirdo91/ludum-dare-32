@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(SpriteRenderer)]
+[RequireComponent(typeof(SpriteRenderer))]
 public abstract class Bullet : MonoBehaviour
 {
     [SerializeField]
-    Sprite[] bulletSprites;
+    protected Sprite[] bulletSprites;
 
     // Use this for initialization
     void Start()
@@ -17,6 +17,6 @@ public abstract class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.up);
-        this.GetComponent<SpriteRenderer>().sprite = bulletSprites[Random.Range(0, bulletSprites)];
+        this.GetComponent<SpriteRenderer>().sprite = bulletSprites[Random.Range(0, bulletSprites.Length)];
     }
 }
