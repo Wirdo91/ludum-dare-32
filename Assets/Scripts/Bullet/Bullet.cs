@@ -8,15 +8,15 @@ public abstract class Bullet : MonoBehaviour
     protected Sprite[] bulletSprites;
 
     // Use this for initialization
-    void Start()
+    public virtual void Start()
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
-        transform.Translate(Vector2.up);
+        transform.Translate(Vector2.right * Time.deltaTime, Space.Self);
         this.GetComponent<SpriteRenderer>().sprite = bulletSprites[Random.Range(0, bulletSprites.Length)];
     }
 }

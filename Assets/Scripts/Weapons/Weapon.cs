@@ -13,10 +13,10 @@ public class Weapon : MonoBehaviour
         bullet.SetActive(false);
     }
 
-    public virtual void Shoot(Vector3 ppos, Vector3 dir)
+    public virtual void Shoot(Vector3 ppos, Quaternion angle)
     {
         GameObject go = Instantiate(bullet);
         go.transform.position = ppos;
-        go.transform.eulerAngles = dir;
+        go.transform.rotation = angle;
     }
 }

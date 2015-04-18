@@ -9,7 +9,9 @@ public class FartBullet : Bullet {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	public override void Update ()
+    {
+        transform.Translate(-Vector2.right * Time.deltaTime, Space.Self);
+        this.GetComponent<SpriteRenderer>().sprite = bulletSprites[Random.Range(0, bulletSprites.Length)];
 	}
 }

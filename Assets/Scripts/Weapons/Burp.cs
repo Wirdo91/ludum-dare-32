@@ -9,7 +9,6 @@ public class Burp : Weapon {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	 void Update () {
 	}
 }

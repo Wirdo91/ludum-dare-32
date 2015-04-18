@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject CrossHead;
     public int Health { get; set; }
-    public Weapon CurrentWeapon { get; set; }
+    [SerializeField]
+    public Weapon CurrentWeapon;
     public float MoveSpeed { get; set; }
 
 	// Use this for initialization
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 dir = Vector2.zero;
         if (Input.GetKey(KeyCode.W))
         {
@@ -36,13 +38,13 @@ public class Player : MonoBehaviour
         {
             dir += Vector2.right;
         }
-        transform.Translate(dir.normalized * Time.deltaTime * MoveSpeed);
-
-        CrossHead.transform.position = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * Mathf.Clamp(Vector3.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position), 0.0f, 5.0f) + transform.position;
+        transform.Translate(dir.normalized * Time.deltaTime * MoveSpeed, Space.World);
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mouseWorldPos.y - this.transform.position.y, mouseWorldPos.x - this.transform.position.x) * Mathf.Rad2Deg);
+        CrossHead.transform.position = (mouseWorldPos - (Vector2)transform.position).normalized * Mathf.Clamp(Vector2.Distance(mouseWorldPos, transform.position), 0.0f, 5.0f) + (Vector2)transform.position;
         if (Input.GetKey(KeyCode.Mouse0))
         {
             //TODO: Shoot fucking bullets!
-            CurrentWeapon.Shoot(this.transform.position, this.transform.eulerAngles);
+            CurrentWeapon.Shoot(this.transform.position, this.transform.rotation);
         }
 	}
 }
