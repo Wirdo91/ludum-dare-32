@@ -10,14 +10,14 @@ public class Player : MonoBehaviour
     public Weapon CurrentWeapon { get; set; }
     public float MoveSpeed { get; set; }
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         MoveSpeed = 5;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         Vector2 dir = Vector2.zero;
         if (Input.GetKey(KeyCode.W))
@@ -38,11 +38,12 @@ public class Player : MonoBehaviour
         }
         transform.Translate(dir.normalized * Time.deltaTime * MoveSpeed);
 
-        CrossHead.transform.position = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * Mathf.Clamp(Vector3.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position), 0.0f, 5.0f) + transform.position;
-        if (Input.GetKey(KeyCode.Mouse0))
+        CrossHead.transform.position = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)this.transform.position).normalized *
+            Mathf.Clamp(((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)this.transform.position).magnitude, 0, 3);
+        if (Input.GetMouseButton(0))
         {
             //TODO: Shoot fucking bullets!
             CurrentWeapon.Shoot(this.transform.position, this.transform.eulerAngles);
         }
-	}
+    }
 }

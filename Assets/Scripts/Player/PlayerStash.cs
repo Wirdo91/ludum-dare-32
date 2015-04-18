@@ -4,9 +4,10 @@ using System.Collections.Generic;
 
 public class PlayerStash : MonoBehaviour
 {
-
     [SerializeField]
     public readonly uint StashStartAmount = 10;
+    [SerializeField]
+    GameObject stashItem;
 
     Queue<StashItem> stash;
 
@@ -16,7 +17,9 @@ public class PlayerStash : MonoBehaviour
         stash = new Queue<StashItem>();
         for (int i = 0; i < StashStartAmount; i++)
         {
-            stash.Enqueue(new StashItem());
+            GameObject item = Instantiate(stashItem);
+            item.transform.position = Vector3.up * 100;
+            stash.Enqueue(item.GetComponent<StashItem>());
         }
     }
 
@@ -27,6 +30,7 @@ public class PlayerStash : MonoBehaviour
 
     public void ReturnItem(StashItem item)
     {
+        item.transform.position = Vector3.up * 100;
         stash.Enqueue(item);
     }
 }
