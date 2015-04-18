@@ -4,8 +4,10 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject CrossHead;
     public int Health { get; set; }
-    public Weapons Weapon { get; set; }
+    public Weapon CurrentWeapon { get; set; }
     public float MoveSpeed { get; set; }
 
 	// Use this for initialization
@@ -35,10 +37,12 @@ public class Player : MonoBehaviour
             dir += Vector2.right;
         }
         transform.Translate(dir.normalized * Time.deltaTime * MoveSpeed);
-	}
-}
 
-public enum Weapons
-{
-    Beam, Bullet, Rocket,
+        CrossHead.transform.position = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized * Mathf.Clamp(Vector3.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position), 0.0f, 5.0f) + transform.position;
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            //TODO: Shoot fucking bullets!
+            CurrentWeapon.Shoot(this.transform.position, this.transform.eulerAngles);
+        }
+	}
 }
