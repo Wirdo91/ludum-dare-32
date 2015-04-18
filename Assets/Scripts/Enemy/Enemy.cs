@@ -21,6 +21,9 @@ public class Enemy : MonoBehaviour
     StashItem currentItem = null;
 
     [SerializeField]
+    Weapon currentWeapons;
+
+    [SerializeField]
     float moveSpeed = 3f;
 
     // Use this for initialization
@@ -44,6 +47,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentWeapons != null)
+        {
+            currentWeapons.update();
+        }
+
         if (movementType == EnemyMovement.Curve)
         {
             if (timer > 1f)
@@ -60,17 +68,24 @@ public class Enemy : MonoBehaviour
             curDir = Quaternion.Euler(0, 0, Random.Range(-10f, 10f)) * curDir;
         }
 
-        this.transform.Translate(curDir.normalized * moveSpeed * Time.deltaTime);
+        this.transform.Translate(curDir.normalized * moveSpeed * Time.deltaTime, Space.World);
+        this.transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(curDir.y, curDir.x) * Mathf.Rad2Deg);
 
         if (currentItem != null)
         {
             currentItem.transform.position = this.transform.position + (Vector3)curDir * 0.2f;
+        }
+
+        if (currentWeapons != null)
+        {
+            currentWeapons.Shoot(this.transform.position, this.transform.rotation);
         }
     }
 
     void OnBecameInvisible()
     {
         Debug.Log("Out of bound");
+        Destroy(currentItem);
         Destroy(this.gameObject);
     }
 
