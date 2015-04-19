@@ -7,7 +7,7 @@ public abstract class Weapon : MonoBehaviour
     protected GameObject bullet;
 
     [SerializeField]
-    int shotspersec;
+    float shotspersec;
 
     float attackspeed;
 

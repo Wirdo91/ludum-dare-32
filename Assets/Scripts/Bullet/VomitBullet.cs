@@ -18,7 +18,7 @@ public class VomitBullet : Bullet
         }
         this.GetComponent<SpriteRenderer>().sprite = bulletSprites[Random.Range(0, bulletSprites.Length)];
         lifeTime += Time.deltaTime;
-        this.transform.localScale = new Vector3(Mathf.Clamp(transform.localScale.x + Time.deltaTime, 0.0f, 0.75f), 0.05f, 1);
+        this.transform.localScale = new Vector3(Mathf.Clamp(transform.localScale.x + (Time.deltaTime * 2.5f), 0.0f, 0.5f), 0.025f, 1);
         Transform t = GameObject.Find("Player").transform;
         this.transform.position = t.position;
         this.transform.rotation = t.rotation;
