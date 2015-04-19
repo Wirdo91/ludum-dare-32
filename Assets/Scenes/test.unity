@@ -472,6 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e83b42fd5bec64f827dee05659cdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StashStartAmount: 50
   stashItem: {fileID: 147546, guid: aca6350c4d7e58042b2a9d08375343d9, type: 2}
 --- !u!58 &1642055682
 CircleCollider2D:

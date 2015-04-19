@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 442264}
   - 212: {fileID: 21298074}
   - 114: {fileID: 11464704}
+  - 61: {fileID: 6141148}
   m_Layer: 0
   m_Name: VomitBullet
   m_TagString: Untagged
@@ -29,6 +30,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6141148
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146666}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 5.11999989, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10}
 --- !u!114 &11464704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43,7 +57,7 @@ MonoBehaviour:
   bulletSprites:
   - {fileID: 21300000, guid: 2d5d4e65c8c67104fb3a1a9eaf3883d3, type: 3}
   speed: 0
-  lifeSpan: 1
+  lifeSpan: .5
 --- !u!212 &21298074
 SpriteRenderer:
   m_ObjectHideFlags: 1
