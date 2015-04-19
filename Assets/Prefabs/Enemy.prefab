@@ -83,7 +83,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 192642}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -105,6 +105,11 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   currentWeapons: {fileID: 0}
   moveSpeed: 3
+  weapons:
+  - {fileID: 11450100, guid: 04daa772012b8264283532e9054a4cf9, type: 2}
+  - {fileID: 11412078, guid: 1f5ebcd3af668eb40848b3840b6fc0c2, type: 2}
+  - {fileID: 11434502, guid: 94b1daff240608f4497fea4b7c2665cc, type: 2}
+  changeForWeaponDrop: .100000001
 --- !u!212 &21236396
 SpriteRenderer:
   m_ObjectHideFlags: 1

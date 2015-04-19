@@ -34,6 +34,12 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     float moveSpeed = 3f;
 
+    [SerializeField]
+    Weapon[] weapons;
+
+    [SerializeField]
+    float changeForWeaponDrop = .10f;
+
     public void Initiate(SingleEnemy settings)
     {
         this.startPos = settings.StartPos;
@@ -94,12 +100,17 @@ public class Enemy : MonoBehaviour
 
         if (currentItem != null)
         {
-            currentItem.transform.position = this.transform.position + (Vector3)curDir * 0.2f;
+            currentItem.transform.position = this.transform.position + (Vector3)curDir.normalized * .2f;
         }
 
         if (currentWeapons != null)
         {
             currentWeapons.Shoot(this.transform.position, this.transform.rotation, "Enemy");
+        }
+
+        if (Vector2.Distance(this.transform.position, Vector2.zero) > 25)
+        {
+            Despawn();
         }
     }
 
@@ -121,6 +132,11 @@ public class Enemy : MonoBehaviour
     void OnBecameInvisible()
     {
         Debug.Log("Out of bound");
+        Despawn();
+    }
+
+    void Despawn()
+    {
         if (currentItem != null)
         {
             Destroy(currentItem.gameObject);
@@ -136,9 +152,13 @@ public class Enemy : MonoBehaviour
             {
                 currentItem = col.transform.GetComponent<PlayerStash>().TakeItem();
 
-                col.enabled = false;
+                if (currentItem != null)
+                {
+                    Debug.Log("Item stolen");
+                    currentItem.GetComponent<Collider2D>().enabled = false;
 
-                SetNewGoal(LevelController.GetClostestSpawn(this.transform.position, curDir));
+                    SetNewGoal(LevelController.GetClostestSpawn(this.transform.position, curDir));
+                }
             }
             else if (col.GetComponent<StashItem>() != null)
             {
@@ -157,6 +177,8 @@ public class Enemy : MonoBehaviour
 
     public void Kill()
     {
+        Destroy(this.gameObject);
+
         if (currentItem != null)
         {
             currentItem.transform.position = this.transform.position;
@@ -165,6 +187,9 @@ public class Enemy : MonoBehaviour
         }
         currentItem = null;
 
-        Destroy(this.gameObject);
+        if (Random.Range(0, 1) < changeForWeaponDrop)
+        {
+            Instantiate(weapons[Random.Range(0, weapons.Length)]);
+        }
     }
 }

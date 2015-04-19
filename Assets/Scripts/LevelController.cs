@@ -88,7 +88,7 @@ public class LevelController : MonoBehaviour
                 Debug.Log("Final Score: " + stash.Count + "/" + stash.StashStartAmount);
             }
         }
-        if (player.Health <= 0)
+        if (player.Health <= 0 || stash.Count <= 0)
         {
             gameOver = true;
 
@@ -117,6 +117,11 @@ public class LevelController : MonoBehaviour
 
     internal static Vector2 GetClostestSpawn(Vector2 curPos, Vector2 curDir)
     {
+        if (instance.activeEnemySpawns.Count <= 0)
+        {
+            return curPos + curDir;
+        }
+
         float currentDistance = float.PositiveInfinity;
         Vector2 currentPosition = curPos + curDir;
         foreach (EnemySpawn spawn in instance.activeEnemySpawns)
