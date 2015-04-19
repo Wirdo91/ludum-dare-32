@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 168918, guid: 18c272e5268c8914ea31a7d3dba78566, type: 2}
-  shotspersec: 4
+  shotspersec: 0
 --- !u!212 &21212468
 SpriteRenderer:
   m_ObjectHideFlags: 1

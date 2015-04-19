@@ -22,20 +22,26 @@ public class PlayerStash : MonoBehaviour
         stash = new Queue<StashItem>();
         for (int i = 0; i < StashStartAmount; i++)
         {
-            GameObject item = Instantiate(stashItem);
-            item.transform.position = Vector3.up * 100;
+            GameObject item = (GameObject)Instantiate(stashItem, this.transform.position, Quaternion.identity);
+            item.SetActive(false);
             stash.Enqueue(item.GetComponent<StashItem>());
         }
     }
 
     public StashItem TakeItem()
     {
-        return stash.Dequeue();
+        if (stash.Count <= 0)
+            return null;
+
+        StashItem currentItem = stash.Dequeue();
+        currentItem.gameObject.SetActive(true);
+        return currentItem;
     }
 
     public void ReturnItem(StashItem item)
     {
-        item.transform.position = Vector3.up * 100;
+        item.transform.position = this.transform.position;
+        item.gameObject.SetActive(false);
         stash.Enqueue(item);
     }
 }

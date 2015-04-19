@@ -15,8 +15,6 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void start()
     {
-        bullet.AddComponent<SpriteRenderer>();
-        bullet.AddComponent<Bullet>();
         if (shotspersec == 0)
             attackspeed = 0;
         else
@@ -29,11 +27,12 @@ public abstract class Weapon : MonoBehaviour
         attacktimer += Time.deltaTime;
     }
 
-    public virtual void Shoot(Vector3 ppos, Quaternion angle)
+    public virtual void Shoot(Vector3 ppos, Quaternion angle, string tag)
     {
         if (attacktimer >= attackspeed)
         {
             GameObject go = Instantiate(bullet);
+            go.tag = tag;
             go.transform.position = ppos;
             go.transform.rotation = angle;
             attacktimer = 0;

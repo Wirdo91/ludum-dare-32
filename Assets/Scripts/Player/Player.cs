@@ -11,15 +11,18 @@ public class Player : MonoBehaviour
     public Weapon CurrentWeapon;
     public float MoveSpeed { get; set; }
 
-	// Use this for initialization
-	void Start ()
+    StashItem currentItem;
+
+    // Use this for initialization
+    void Start()
     {
         MoveSpeed = 5;
+        Health = 3;
         CurrentWeapon.start();
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         CurrentWeapon.update();
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -46,7 +49,29 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0))
         {
             //TODO: Shoot fucking bullets!
-            CurrentWeapon.Shoot(this.transform.position, this.transform.rotation);
+            CurrentWeapon.Shoot(this.transform.position, this.transform.rotation, "Player");
         }
-	}
+        if (currentItem != null && dir != Vector2.zero)
+        {
+            currentItem.transform.position = this.transform.position + (Vector3)dir * 0.2f;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.GetComponent<Bullet>() != null && col.tag == "Enemy")
+        {
+            Debug.Log("Player hit");
+            Health--;
+        }
+        if (currentItem == null && col.GetComponent<StashItem>() != null)
+        {
+            currentItem = col.GetComponent<StashItem>();
+        }
+        if (currentItem != null && col.GetComponent<PlayerStash>() != null)
+        {
+            col.GetComponent<PlayerStash>().ReturnItem(currentItem);
+            currentItem = null;
+        }
+    }
 }
