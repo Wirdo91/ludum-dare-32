@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 
             CurrentWeapon = col.GetComponent<Weapon>();
             CurrentWeapon.GetComponent<Collider2D>().enabled = false;
-            CurrentWeapon.GetComponent<Renderer>().enabled = false;
+            CurrentWeapon.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }

@@ -9,12 +9,17 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]
     float shotspersec;
 
+    [SerializeField]
+    float despawnDelay = 3f;
+
     float attackspeed;
 
     float attacktimer = 0;
 
     [SerializeField]
     AudioClip[] soundEffects;
+
+    SpriteRenderer render;
 
     public virtual void start()
     {
@@ -24,10 +29,28 @@ public abstract class Weapon : MonoBehaviour
             attackspeed = (1.0f / shotspersec);
     }
 
+    void Start()
+    {
+        render = this.GetComponent<SpriteRenderer>();
+    }
+
     public virtual void update()
     {
+
         //Debug.Log(attackspeed);
         attacktimer += Time.deltaTime;
+    }
+
+    void Update()
+    {
+        if (render != null && render.enabled)
+        {
+            despawnDelay -= Time.deltaTime;
+            if (despawnDelay <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     public virtual void Shoot(Vector3 ppos, Quaternion angle, string tag)
