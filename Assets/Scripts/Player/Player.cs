@@ -24,6 +24,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LevelController.GameOver)
+        {
+            return;
+        }
+
         CurrentWeapon.update();
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 dir = Vector2.zero;

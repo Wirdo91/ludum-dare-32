@@ -74,6 +74,10 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LevelController.GameOver)
+        {
+            return;
+        }
         if (currentWeapons != null)
         {
             currentWeapons.update();
@@ -183,7 +187,7 @@ public class Enemy : MonoBehaviour
         {
             currentItem.transform.position = this.transform.position;
 
-            currentItem.GetComponent<Collider2D>().enabled = false;
+            currentItem.GetComponent<Collider2D>().enabled = true;
         }
         currentItem = null;
 
