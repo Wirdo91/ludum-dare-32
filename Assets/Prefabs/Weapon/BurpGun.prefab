@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 472942}
   - 212: {fileID: 21297704}
   - 114: {fileID: 11450100}
+  - 58: {fileID: 5810820}
   m_Layer: 0
   m_Name: BurpGun
   m_TagString: Untagged
@@ -24,11 +25,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2, y: 4, z: 0}
+  m_LocalScale: {x: .0500000007, y: .0500000007, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!58 &5810820
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197958}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5.11999989
 --- !u!114 &11450100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -41,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 103110, guid: 4b757b4d4bcde444ab8d307a5e5ecaa8, type: 2}
-  shotspersec: 4
+  shotspersec: 0
 --- !u!212 &21297704
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -66,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 16412f756609aa44a82a50b62752cef9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

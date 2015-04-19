@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 440702}
   - 212: {fileID: 21279298}
   - 114: {fileID: 11434502}
+  - 58: {fileID: 5829356}
   m_Layer: 0
   m_Name: VomitGun
   m_TagString: Untagged
@@ -29,6 +30,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!58 &5829356
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109086}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .5
 --- !u!114 &11434502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -41,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 146666, guid: 8f577c620c4205f42ade32833ce356b1, type: 2}
-  shotspersec: 1
+  shotspersec: 0
 --- !u!212 &21279298
 SpriteRenderer:
   m_ObjectHideFlags: 1
