@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     {
         MoveSpeed = 5;
         Health = 3;
+        CurrentWeapon = Instantiate(CurrentWeapon.gameObject).GetComponent<Weapon>();
         CurrentWeapon.start();
     }
 

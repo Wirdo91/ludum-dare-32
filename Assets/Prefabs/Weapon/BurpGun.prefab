@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21297704}
   - 114: {fileID: 11450100}
   - 58: {fileID: 5810820}
+  - 82: {fileID: 8262244}
   m_Layer: 0
   m_Name: BurpGun
   m_TagString: Untagged
@@ -43,6 +44,75 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5.11999989
+--- !u!82 &8262244
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197958}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11450100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,7 +125,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 103110, guid: 4b757b4d4bcde444ab8d307a5e5ecaa8, type: 2}
-  shotspersec: 0
+  shotspersec: 10
+  soundEffects:
+  - {fileID: 8300000, guid: 023023bbfc334ee42a64409ba5c92ea5, type: 3}
+  - {fileID: 8300000, guid: 0585853d158ee72498cdab5aace824f0, type: 3}
+  - {fileID: 8300000, guid: faca00c68cbb88240843692e6334b2fc, type: 3}
 --- !u!212 &21297704
 SpriteRenderer:
   m_ObjectHideFlags: 1

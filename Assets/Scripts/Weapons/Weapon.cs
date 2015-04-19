@@ -13,6 +13,9 @@ public abstract class Weapon : MonoBehaviour
 
     float attacktimer = 0;
 
+    [SerializeField]
+    AudioClip[] soundEffects;
+
     public virtual void start()
     {
         if (shotspersec == 0)
@@ -36,6 +39,12 @@ public abstract class Weapon : MonoBehaviour
             go.transform.position = ppos;
             go.transform.rotation = angle;
             attacktimer = 0;
+
+            if (soundEffects.Length > 0)
+            {
+                this.GetComponent<AudioSource>().enabled = true;
+                this.GetComponent<AudioSource>().PlayOneShot(soundEffects[Random.Range(0, soundEffects.Length)]);
+            }
         }
     }
 }
