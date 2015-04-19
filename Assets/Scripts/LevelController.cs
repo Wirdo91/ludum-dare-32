@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Wave
@@ -21,6 +22,14 @@ public class LevelController : MonoBehaviour
 
     [SerializeField]
     Wave[] Waves;
+
+    [SerializeField]
+    Text stashText, gmText;
+
+    public static bool GameOver
+    {
+        get { return instance.gameOver; }
+    }
 
     List<EnemySpawn> activeEnemySpawns = new List<EnemySpawn>();
 
@@ -98,6 +107,13 @@ public class LevelController : MonoBehaviour
                 Debug.Log("Final Score: " + stash.Count + "/" + stash.StashStartAmount);
             }
         }
+
+        if (gameOver)
+        {
+            gmText.enabled = true;
+        }
+
+        stashText.text = stash.Count + " / " + stash.StashStartAmount;
     }
 
     GameObject currentEnemy;

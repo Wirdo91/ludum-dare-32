@@ -30,6 +30,11 @@ public class EnemySpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LevelController.GameOver)
+        {
+            return;
+        }
+
         if (Health <= 0)
         {
             this.gameObject.SetActive(false);
