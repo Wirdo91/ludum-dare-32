@@ -21,7 +21,7 @@ public abstract class Weapon : MonoBehaviour
         if (shotspersec == 0)
             attackspeed = 0;
         else
-            attackspeed = (1.0f / (float)shotspersec);
+            attackspeed = (1.0f / shotspersec);
     }
 
     public virtual void update()

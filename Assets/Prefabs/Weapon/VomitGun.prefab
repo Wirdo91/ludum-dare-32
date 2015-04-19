@@ -43,7 +43,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: .5
+  m_Radius: 5.11999989
 --- !u!82 &8293676
 AudioSource:
   m_ObjectHideFlags: 1
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 146666, guid: 8f577c620c4205f42ade32833ce356b1, type: 2}
-  shotspersec: 3
+  shotspersec: 1
   soundEffects:
   - {fileID: 8300000, guid: 2e97a15f6f4fde446aa51726265ae98a, type: 3}
   - {fileID: 8300000, guid: 622dc3c04afc92849968a7648e8ffd48, type: 3}
