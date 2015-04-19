@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PlayerStash : MonoBehaviour
 {
     [SerializeField]
-    public readonly uint StashStartAmount = 10;
+    public uint StashStartAmount = 50;
     [SerializeField]
     GameObject stashItem;
 

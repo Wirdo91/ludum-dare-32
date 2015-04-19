@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
         CurrentWeapon.update();
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 dir = Vector2.zero;
+
         if (Input.GetKey(KeyCode.W))
         {
             dir += Vector2.up;
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
         {
             dir += Vector2.right;
         }
+
         transform.Translate(dir.normalized * Time.deltaTime * MoveSpeed, Space.World);
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mouseWorldPos.y - this.transform.position.y, mouseWorldPos.x - this.transform.position.x) * Mathf.Rad2Deg);
         CrossHead.transform.position = (mouseWorldPos - (Vector2)transform.position).normalized * Mathf.Clamp(Vector2.Distance(mouseWorldPos, transform.position), 0.0f, 5.0f) + (Vector2)transform.position;
@@ -72,6 +74,15 @@ public class Player : MonoBehaviour
         {
             col.GetComponent<PlayerStash>().ReturnItem(currentItem);
             currentItem = null;
+        }
+
+        if (col.GetComponent<Weapon>() != null)
+        {
+            Destroy(CurrentWeapon.gameObject);
+
+            CurrentWeapon = col.GetComponent<Weapon>();
+            CurrentWeapon.GetComponent<Collider2D>().enabled = false;
+            CurrentWeapon.GetComponent<Renderer>().enabled = false;
         }
     }
 }
