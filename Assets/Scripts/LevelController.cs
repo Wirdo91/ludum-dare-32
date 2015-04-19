@@ -7,6 +7,7 @@ public class SingleEnemy : System.Object
 {
     public Vector2 StartPos, EndPos;
     public EnemyMovement Movement;
+    public Weapon Weapon;
 }
 [System.Serializable]
 public class Wave
@@ -49,6 +50,8 @@ public class LevelController : MonoBehaviour
             {
                 SpawnEnemies();
                 currentRound++;
+                Debug.Log("Round Over");
+                Debug.Log("Score: " + stash.Count + "/" + stash.StashStartAmount);
             }
             else if (currentRound >= Waves.Length)
             {
@@ -57,7 +60,7 @@ public class LevelController : MonoBehaviour
             if (gameOver)
             {
                 Debug.Log("Game Over");
-                Debug.Log("Score: " + stash.Count + "/" + stash.StashStartAmount);
+                Debug.Log("Final Score: " + stash.Count + "/" + stash.StashStartAmount);
             }
         }
     }
