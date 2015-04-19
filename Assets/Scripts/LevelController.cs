@@ -110,7 +110,7 @@ public class LevelController : MonoBehaviour
 
         if (gameOver)
         {
-            gmText.enabled = true;
+            gmText.gameObject.SetActive(true);
         }
 
         stashText.text = stash.Count + " / " + stash.StashStartAmount;
@@ -151,5 +151,11 @@ public class LevelController : MonoBehaviour
         }
 
         return currentPosition;
+    }
+
+    public void RestartGame()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+        //TODO Somethign
     }
 }
