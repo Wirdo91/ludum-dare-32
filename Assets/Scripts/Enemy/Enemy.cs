@@ -26,6 +26,13 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     float moveSpeed = 3f;
 
+    public void Initiate(SingleEnemy settings)
+    {
+        this.startPos = settings.StartPos;
+        this.endPos = settings.EndPos;
+        this.movementType = settings.Movement;
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -85,7 +92,7 @@ public class Enemy : MonoBehaviour
     void OnBecameInvisible()
     {
         Debug.Log("Out of bound");
-        Destroy(currentItem);
+        Destroy(currentItem.gameObject);
         Destroy(this.gameObject);
     }
 
@@ -94,6 +101,10 @@ public class Enemy : MonoBehaviour
         if (col.transform.GetComponent<PlayerStash>() != null)
         {
             currentItem = col.transform.GetComponent<PlayerStash>().TakeItem();
+        }
+        if (col.gameObject.GetComponent<Bullet>())
+        {
+            Kill();
         }
     }
 

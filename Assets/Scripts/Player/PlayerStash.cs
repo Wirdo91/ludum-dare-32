@@ -9,6 +9,11 @@ public class PlayerStash : MonoBehaviour
     [SerializeField]
     GameObject stashItem;
 
+    public int Count
+    {
+        get { return stash.Count; }
+    }
+
     Queue<StashItem> stash;
 
     // Use this for initialization
