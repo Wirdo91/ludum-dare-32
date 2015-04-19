@@ -191,7 +191,7 @@ public class Enemy : MonoBehaviour
         }
         currentItem = null;
 
-        if (Random.Range(0, 1) < changeForWeaponDrop)
+        if (Random.Range(0f, 1f) < changeForWeaponDrop)
         {
             GameObject droppedWeapon = (GameObject)Instantiate(weapons[Random.Range(0, weapons.Length)].gameObject, this.transform.position, Quaternion.identity);
             droppedWeapon.GetComponent<SpriteRenderer>().enabled = true;

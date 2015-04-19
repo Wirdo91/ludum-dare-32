@@ -109,7 +109,7 @@ MonoBehaviour:
   - {fileID: 11450100, guid: 04daa772012b8264283532e9054a4cf9, type: 2}
   - {fileID: 11412078, guid: 1f5ebcd3af668eb40848b3840b6fc0c2, type: 2}
   - {fileID: 11434502, guid: 94b1daff240608f4497fea4b7c2665cc, type: 2}
-  changeForWeaponDrop: .100000001
+  changeForWeaponDrop: .25
 --- !u!212 &21236396
 SpriteRenderer:
   m_ObjectHideFlags: 1

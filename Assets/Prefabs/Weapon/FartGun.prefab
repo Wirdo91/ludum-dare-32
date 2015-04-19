@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 168918, guid: 18c272e5268c8914ea31a7d3dba78566, type: 2}
   shotspersec: 4
+  despawnDelay: 3
   soundEffects:
   - {fileID: 8300000, guid: 11ab62a6f120a2f4dbb10cef455be905, type: 3}
   - {fileID: 8300000, guid: bb5c53919b13f5548a5ed3d624e07c0f, type: 3}
@@ -138,7 +139,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130608}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_Materials:
