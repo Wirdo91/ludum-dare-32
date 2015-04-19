@@ -32,6 +32,11 @@ public abstract class Weapon : MonoBehaviour
     void Start()
     {
         render = this.GetComponent<SpriteRenderer>();
+
+        if (shotspersec == 0)
+            attackspeed = 0;
+        else
+            attackspeed = (1.0f / shotspersec);
     }
 
     public virtual void update()
