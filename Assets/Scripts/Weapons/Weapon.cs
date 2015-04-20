@@ -12,14 +12,14 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]
     float despawnDelay = 3f;
 
-    float attackspeed;
+    protected float attackspeed;
 
-    float attacktimer = 0;
+    protected float attacktimer = 0;
 
     [SerializeField]
-    AudioClip[] soundEffects;
+    protected AudioClip[] soundEffects;
 
-    SpriteRenderer render;
+    protected SpriteRenderer render;
 
     public virtual void start()
     {
