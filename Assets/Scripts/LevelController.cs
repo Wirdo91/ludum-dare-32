@@ -26,6 +26,9 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     Text stashText, gmText, startText;
 
+    int enemiesKilled = 0;
+    int enemiesSpawned = 0;
+
     public static bool GameOver
     {
         get { return instance.gameOver; }
@@ -73,6 +76,12 @@ public class LevelController : MonoBehaviour
     void EnemySpawned(Enemy enemy)
     {
         enemies.Add(enemy.gameObject);
+        enemiesSpawned++;
+    }
+
+    public static void EnemyKilled()
+    {
+        instance.enemiesKilled++;
     }
 
     void Update()
@@ -125,6 +134,27 @@ public class LevelController : MonoBehaviour
         if (gameOver)
         {
             gmText.gameObject.SetActive(true);
+
+            foreach (Text text in gmText.GetComponentsInChildren<Text>())
+            {
+                if (stash.Count > 0 && player.Health > 0)
+                {
+                    if (text.name == "YouWin")
+                        text.enabled = true;
+                }
+                if (text.name == "Stash")
+                {
+                    text.text = "Stash stolen: " + (stash.StashStartAmount - stash.Count) + "/" + stash.StashStartAmount;
+                }
+                else if (text.name == "EnemySpawned")
+                {
+                    text.text = "Enemies Spawned: " + enemiesSpawned;
+                }
+                else if (text.name == "EnemyKilled")
+                {
+                    text.text = "Enemies Killed: " + enemiesKilled;
+                }
+            }
         }
 
         stashText.text = stash.Count + " / " + stash.StashStartAmount;
