@@ -7,9 +7,9 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField]
     protected Sprite[] bulletSprites;
     [SerializeField]
-    protected float speed;
+    public float speed;
     [SerializeField]
-    protected float lifeSpan;
+    public float lifeSpan;
     protected float lifeTime;
 
 

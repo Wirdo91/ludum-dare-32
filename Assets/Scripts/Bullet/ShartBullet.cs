@@ -3,7 +3,9 @@ using System.Collections;
 
 public class ShartBullet : Bullet
 {
-    float ExplosionTime = 0.5f;
+    public float ExplosionTime = 0.5f;
+    public float Explosionradius = 1f;
+
     // Use this for initialization
     public override void Start()
     {
@@ -20,10 +22,11 @@ public class ShartBullet : Bullet
                 DestroyObject();
                 return;
             }
-            this.GetComponent<CircleCollider2D>().radius = 2;
+            this.GetComponent<CircleCollider2D>().radius = Explosionradius;
+            this.GetComponent<CircleCollider2D>().offset = new Vector2(0, 0);
             this.GetComponent<SpriteRenderer>().sprite = bulletSprites[Random.Range(1, bulletSprites.Length)];
             this.GetComponent<SpriteRenderer>().color = new Color32(180, 60, 10, 255);
-            this.transform.localScale = new Vector3(1, 1, 1);
+            this.transform.localScale = new Vector3(Explosionradius, Explosionradius, 1);
         }
         else
         {

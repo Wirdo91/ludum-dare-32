@@ -7,7 +7,7 @@ public abstract class Weapon : MonoBehaviour
     protected GameObject bullet;
 
     [SerializeField]
-    float shotspersec;
+    protected float shotspersec;
 
     [SerializeField]
     float despawnDelay = 3f;
@@ -27,9 +27,11 @@ public abstract class Weapon : MonoBehaviour
             attackspeed = 0;
         else
             attackspeed = (1.0f / shotspersec);
+        bullet = Instantiate(bullet);
+        bullet.SetActive(false);
     }
 
-    void Start()
+    public virtual void Start()
     {
         render = this.GetComponent<SpriteRenderer>();
 
@@ -37,6 +39,7 @@ public abstract class Weapon : MonoBehaviour
             attackspeed = 0;
         else
             attackspeed = (1.0f / shotspersec);
+        bullet.SetActive(false);
     }
 
     public virtual void update()
@@ -67,12 +70,15 @@ public abstract class Weapon : MonoBehaviour
             go.transform.position = ppos;
             go.transform.rotation = angle;
             attacktimer = 0;
+            go.SetActive(true);
 
             if (soundEffects.Length > 0)
             {
-                this.GetComponent<AudioSource>().enabled = true;
+    
                 this.GetComponent<AudioSource>().PlayOneShot(soundEffects[Random.Range(0, soundEffects.Length)]);
             }
         }
     }
+
+    public abstract void Upgrade();
 }

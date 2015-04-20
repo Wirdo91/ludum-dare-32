@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 116658, guid: 475174c2679585d4e97aa27c712ea6d9, type: 2}
-  shotspersec: 1
+  shotspersec: 2
   despawnDelay: 3
   soundEffects:
   - {fileID: 8300000, guid: bb5c53919b13f5548a5ed3d624e07c0f, type: 3}

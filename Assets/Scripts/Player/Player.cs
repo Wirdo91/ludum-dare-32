@@ -100,12 +100,25 @@ public class Player : MonoBehaviour
 
         if (col.GetComponent<Weapon>() != null)
         {
-            Destroy(CurrentWeapon.gameObject);
+            if (!col.name.Contains(CurrentWeapon.name))
+            {
+                Destroy(CurrentWeapon.gameObject);
 
-            CurrentWeapon = col.GetComponent<Weapon>();
-            CurrentWeapon.GetComponent<Collider2D>().enabled = false;
-            CurrentWeapon.GetComponent<SpriteRenderer>().enabled = false;
-            CurrentWeapon.start();
+                CurrentWeapon = col.GetComponent<Weapon>();
+                CurrentWeapon.GetComponent<Collider2D>().enabled = false;
+                CurrentWeapon.GetComponent<SpriteRenderer>().enabled = false;
+                CurrentWeapon.start();
+            }
+            else
+            {
+                CurrentWeapon.GetComponent<Collider2D>().enabled = false;
+                CurrentWeapon.GetComponent<SpriteRenderer>().enabled = false;
+
+                CurrentWeapon.Upgrade();
+
+                Destroy(col.gameObject);
+
+            }
         }
     }
 }

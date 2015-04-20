@@ -14,6 +14,9 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     GameObject enemyPrefab;
 
+    [SerializeField]
+    GameObject minimapPrefab;
+
     List<GameObject> enemies = new List<GameObject>();
     PlayerStash stash;
 
@@ -127,7 +130,7 @@ public class LevelController : MonoBehaviour
             gmText.gameObject.SetActive(true);
         }
 
-        stashText.text = stash.Count + " / " + stash.StashStartAmount;
+        stashText.text = "Stash: " + stash.Count + " / " + stash.StashStartAmount;
     }
 
     GameObject currentEnemy;
@@ -187,5 +190,7 @@ public class LevelController : MonoBehaviour
     {
         gameStarted = true;
         startText.gameObject.SetActive(false);
+        minimapPrefab.SetActive(true);
+        stashText.gameObject.SetActive(true);
     }
 }

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &486758
 Transform:
   m_ObjectHideFlags: 1
@@ -104,8 +104,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 10
-  lifeSpan: .5
+  speed: 5
+  lifeSpan: 1
 --- !u!212 &21236486
 SpriteRenderer:
   m_ObjectHideFlags: 1

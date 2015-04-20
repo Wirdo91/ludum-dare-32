@@ -95,8 +95,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 113726555}
-  - 222: {fileID: 113726557}
-  - 114: {fileID: 113726556}
   m_Layer: 0
   m_Name: Credits
   m_TagString: Untagged
@@ -117,6 +115,7 @@ RectTransform:
   - {fileID: 1516726978}
   - {fileID: 622638444}
   - {fileID: 603926406}
+  - {fileID: 1986627420}
   m_Father: {fileID: 1958193564}
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
@@ -124,38 +123,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1400, y: 1100}
   m_Pivot: {x: .5, y: .5}
---- !u!114 &113726556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 113726554}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: New Text
---- !u!222 &113726557
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 113726554}
 --- !u!1 &124497821
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,8 +874,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -301, y: 0}
-  m_SizeDelta: {x: 400, y: 400}
+  m_AnchoredPosition: {x: -350, y: 142}
+  m_SizeDelta: {x: 700, y: 681}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &603926407
 MonoBehaviour:
@@ -922,7 +889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 40
@@ -935,8 +902,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Programming:\n\t- Jackie\n\t- Nicolai\nGraphics:\n\t- Bettina\n\t- Jackie\n\t-
-    Nicolai\nAudio:\n\t- Jackie\n\t- Nicolai"
+  m_Text: "Made for Ludum dare 32 jam in 72 hours.\n\n\nProgramming:\n\t- Jackie Christensen\n\t-
+    Nicolai Kirk\nGraphics:\n\t- Bettina Andersen\n\t- Jackie Christensen\n\t- Nicolai
+    Kirk\nAudio:\n\t- Jackie Christensen\n\t- Nicolai Kirk"
 --- !u!222 &603926408
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1044,7 +1012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 39
@@ -1156,7 +1124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CrossHead: {fileID: 844690643}
-  CurrentWeapon: {fileID: 11486314, guid: b31fb43c846eb63419f8a2ed2b31219f, type: 2}
+  CurrentWeapon: {fileID: 11412078, guid: 1f5ebcd3af668eb40848b3840b6fc0c2, type: 2}
   playerSprites:
   - {fileID: 21300004, guid: 4316a140508623e47bffb8e4b1afa287, type: 3}
   - {fileID: 21300002, guid: 4316a140508623e47bffb8e4b1afa287, type: 3}
@@ -1192,7 +1160,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 677045436}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106709}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
@@ -1238,7 +1206,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 99ea9059b52eb5745942ad0e14e3f07d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .800000012
+  m_Volume: .400000006
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1464,7 +1432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1010393602
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3242,6 +3210,73 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1986627419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1986627420}
+  - 222: {fileID: 1986627422}
+  - 114: {fileID: 1986627421}
+  m_Layer: 0
+  m_Name: Text 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1986627420
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986627419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 113726555}
+  m_RootOrder: 3
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 350, y: 142}
+  m_SizeDelta: {x: 700, y: 681}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1986627421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986627419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Social Medias:\n\n\nJackie:\t@jacksendary https://twitter.com/jacksendary\n\nBettina:
+    @Tinachan_ba https://twitter.com/Tinachan_ba"
+--- !u!222 &1986627422
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986627419}
 --- !u!1 &1992788557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,7 +3293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1992788558
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3336,6 +3371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 185016, guid: a4ef921a874a15340995d6c245e8ce95, type: 2}
+  minimapPrefab: {fileID: 1010393601}
   useWaves: 0
   Waves:
   - enemies:
