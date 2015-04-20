@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CrossHead: {fileID: 844690643}
-  CurrentWeapon: {fileID: 11412078, guid: 1f5ebcd3af668eb40848b3840b6fc0c2, type: 2}
+  CurrentWeapon: {fileID: 11486314, guid: b31fb43c846eb63419f8a2ed2b31219f, type: 2}
   playerSprites:
   - {fileID: 21300004, guid: 4316a140508623e47bffb8e4b1afa287, type: 3}
   - {fileID: 21300002, guid: 4316a140508623e47bffb8e4b1afa287, type: 3}
