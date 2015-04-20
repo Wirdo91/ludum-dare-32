@@ -98,7 +98,7 @@ GameObject:
   - 222: {fileID: 113726557}
   - 114: {fileID: 113726556}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -935,8 +935,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Programming:\n\t- Jackie\n\t- Nicolai\nGraphics:\n\t- Bettina\n\t- Jackie\nAudio:\n\t-
-    Jackie\n\t- Nicolai"
+  m_Text: "Programming:\n\t- Jackie\n\t- Nicolai\nGraphics:\n\t- Bettina\n\t- Jackie\n\t-
+    Nicolai\nAudio:\n\t- Jackie\n\t- Nicolai"
 --- !u!222 &603926408
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2149,6 +2149,10 @@ Prefab:
     - target: {fileID: 11486022, guid: 8e19e8dadc4514044a26e7036ee82b84, type: 2}
       propertyPath: StashStartAmount
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 21290590, guid: 8e19e8dadc4514044a26e7036ee82b84, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e19e8dadc4514044a26e7036ee82b84, type: 2}
