@@ -24,20 +24,26 @@ public class LevelController : MonoBehaviour
     Wave[] Waves;
 
     [SerializeField]
-    Text stashText, gmText;
+    Text stashText, gmText, startText;
 
     public static bool GameOver
     {
         get { return instance.gameOver; }
     }
+    public static bool GameStarted
+    {
+        get { return instance.gameStarted; }
+    }
 
-    List<EnemySpawn> activeEnemySpawns = new List<EnemySpawn>();
+    List<EnemySpawn> currentEnemySpawns = new List<EnemySpawn>();
+    List<EnemySpawn> hardEnemySpawnsExtention = new List<EnemySpawn>();
 
     static LevelController instance;
 
     Player player;
 
     int currentRound = 0;
+    bool gameStarted = false;
     bool gameOver = false;
 
     // Use this for initialization
@@ -48,11 +54,19 @@ public class LevelController : MonoBehaviour
         stash = FindObjectOfType<PlayerStash>();
         player = FindObjectOfType<Player>();
 
-        activeEnemySpawns.AddRange(GameObject.FindObjectsOfType<EnemySpawn>());
-
-        foreach (EnemySpawn spawn in activeEnemySpawns)
+        foreach (EnemySpawn spawn in GameObject.FindObjectsOfType<EnemySpawn>())
         {
             spawn.myEnemySpawned += EnemySpawned;
+
+            if (spawn.gameObject.tag == "HardSpawn")
+            {
+                hardEnemySpawnsExtention.Add(spawn);
+                spawn.gameObject.SetActive(false);
+            }
+            else
+            {
+                currentEnemySpawns.Add(spawn);
+            }
         }
     }
 
@@ -63,13 +77,13 @@ public class LevelController : MonoBehaviour
 
     void Update()
     {
-        if (gameOver)
+        if (!gameStarted || gameOver)
         {
             return;
 
         }
         enemies.RemoveAll(enemy => enemy == null);
-        activeEnemySpawns.RemoveAll(spawn => spawn == null);
+        currentEnemySpawns.RemoveAll(spawn => spawn == null || !spawn.gameObject.activeSelf);
 
         if (enemies.Count == 0)
         {
@@ -87,7 +101,7 @@ public class LevelController : MonoBehaviour
                     gameOver = true;
                 }
             }
-            else if (activeEnemySpawns.Count <= 0)
+            else if (currentEnemySpawns.Count <= 0)
             {
                 gameOver = true;
             }
@@ -133,14 +147,14 @@ public class LevelController : MonoBehaviour
 
     internal static Vector2 GetClostestSpawn(Vector2 curPos, Vector2 curDir)
     {
-        if (instance.activeEnemySpawns.Count <= 0)
+        if (instance.currentEnemySpawns.Count <= 0)
         {
             return curPos + curDir;
         }
 
         float currentDistance = float.PositiveInfinity;
         Vector2 currentPosition = curPos + curDir;
-        foreach (EnemySpawn spawn in instance.activeEnemySpawns)
+        foreach (EnemySpawn spawn in instance.currentEnemySpawns)
         {
             float newDistance = Vector2.Distance(curPos + (curDir * 2), spawn.transform.position);
             if (newDistance < currentDistance)
@@ -157,5 +171,21 @@ public class LevelController : MonoBehaviour
     {
         Application.LoadLevel(Application.loadedLevel);
         //TODO Somethign
+    }
+
+    public void HardGame()
+    {
+        foreach (EnemySpawn spawn in hardEnemySpawnsExtention)
+        {
+            spawn.gameObject.SetActive(true);
+        }
+
+        NormalGame();
+    }
+
+    public void NormalGame()
+    {
+        gameStarted = true;
+        startText.gameObject.SetActive(false);
     }
 }

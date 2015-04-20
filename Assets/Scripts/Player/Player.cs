@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (LevelController.GameOver)
+        if (!LevelController.GameStarted || LevelController.GameOver)
         {
             return;
         }
