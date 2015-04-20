@@ -201,6 +201,8 @@ public class Enemy : MonoBehaviour
     {
         Destroy(this.gameObject);
 
+        LevelController.EnemyKilled();
+
         if (currentItem != null)
         {
             currentItem.transform.position = this.transform.position;
