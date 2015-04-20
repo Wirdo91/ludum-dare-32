@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
         if (col.GetComponent<Bullet>() != null && col.tag == "Enemy")
         {
             Debug.Log("Player hit");
-            Health--;
+            //Health--;
         }
         if (currentItem == null && col.GetComponent<StashItem>() != null)
         {

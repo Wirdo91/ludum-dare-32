@@ -105,7 +105,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 7.5
-  lifeSpan: 2
+  lifeSpan: 1
 --- !u!212 &21272302
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -140,10 +140,10 @@ public class LevelController : MonoBehaviour
 
             foreach (Text text in gmText.GetComponentsInChildren<Text>())
             {
-                if (stash.Count > 0 && player.Health > 0)
+                if (stash.Count == 0)
                 {
-                    if (text.name == "YouWin")
-                        text.enabled = true;
+                    if (text.gameObject.name == "YouWin")
+                        text.gameObject.SetActive(false);
                 }
                 if (text.name == "Stash")
                 {
