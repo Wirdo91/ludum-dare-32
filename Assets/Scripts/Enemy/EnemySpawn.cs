@@ -30,7 +30,7 @@ public class EnemySpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (LevelController.GameOver)
+        if (!LevelController.GameStarted || LevelController.GameOver)
         {
             return;
         }
@@ -45,11 +45,6 @@ public class EnemySpawn : MonoBehaviour
         {
             spawnTimer = 0f;
             myEnemySpawned(SpawnEnemy());
-        }
-
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            this.gameObject.SetActive(true);
         }
     }
 
