@@ -2150,6 +2150,10 @@ Prefab:
       propertyPath: StashStartAmount
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 21290590, guid: 8e19e8dadc4514044a26e7036ee82b84, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e19e8dadc4514044a26e7036ee82b84, type: 2}
   m_IsPrefabParent: 0

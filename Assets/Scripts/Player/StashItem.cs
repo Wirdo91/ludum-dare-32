@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StashItem : MonoBehaviour {
+public class StashItem : MonoBehaviour
+{
+    [SerializeField]
+    Sprite[] sprites;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    // Use this for initialization
+    void Start()
+    {
+        if (sprites.Length > 0)
+            this.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
+    }
 }

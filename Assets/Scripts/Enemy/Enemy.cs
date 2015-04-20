@@ -110,7 +110,7 @@ public class Enemy : MonoBehaviour
 
         if (currentItem != null)
         {
-            currentItem.transform.position = this.transform.position + (Vector3)curDir.normalized * .2f;
+            currentItem.transform.position = this.transform.position + (Vector3)curDir.normalized * .7f;
         }
 
         if (currentWeapons != null)
