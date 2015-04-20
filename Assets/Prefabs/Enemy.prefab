@@ -43,7 +43,7 @@ Transform:
   m_GameObject: {fileID: 192642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 420856}
   m_Father: {fileID: 0}
@@ -87,7 +87,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: .100000001
+  m_Radius: 1
 --- !u!114 &11467936
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,6 +110,9 @@ MonoBehaviour:
   - {fileID: 11412078, guid: 1f5ebcd3af668eb40848b3840b6fc0c2, type: 2}
   - {fileID: 11434502, guid: 94b1daff240608f4497fea4b7c2665cc, type: 2}
   changeForWeaponDrop: .25
+  playerSprites:
+  - {fileID: 21300002, guid: 1d394910ee914fb42817146f71668ced, type: 3}
+  - {fileID: 21300004, guid: 1d394910ee914fb42817146f71668ced, type: 3}
 --- !u!212 &21236396
 SpriteRenderer:
   m_ObjectHideFlags: 1

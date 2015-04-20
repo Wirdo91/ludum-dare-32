@@ -40,6 +40,12 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     float changeForWeaponDrop = .10f;
 
+    [SerializeField]
+    Sprite[] playerSprites;
+
+    int index = 0;
+    float spritetimer;
+
     public void Initiate(SingleEnemy settings)
     {
         this.startPos = settings.StartPos;
@@ -115,6 +121,18 @@ public class Enemy : MonoBehaviour
         if (Vector2.Distance(this.transform.position, Vector2.zero) > 25)
         {
             Despawn();
+        }
+
+        spritetimer += Time.deltaTime;
+        if ((float)(1.0f / 15.0f) <= spritetimer)
+        {
+            index++;
+            if (index == playerSprites.Length)
+            {
+                index = 0;
+            }
+            this.GetComponent<SpriteRenderer>().sprite = playerSprites[index];
+            spritetimer = 0;
         }
     }
 

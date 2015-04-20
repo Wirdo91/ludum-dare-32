@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1d394910ee914fb42817146f71668ced
-timeCreated: 1429488612
+timeCreated: 1429489931
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -55,30 +55,30 @@ TextureImporter:
     - name: PoopspriteIguess2_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 274
-        width: 225
-        height: 160
+        x: 82
+        y: 150
+        width: 160
+        height: 225
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PoopspriteIguess2_1
       rect:
         serializedVersion: 2
-        x: 261
-        y: 272
-        width: 225
-        height: 160
+        x: 274
+        y: 261
+        width: 160
+        height: 225
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PoopspriteIguess2_2
       rect:
         serializedVersion: 2
-        x: 137
-        y: 80
-        width: 225
-        height: 160
+        x: 271
+        y: 26
+        width: 160
+        height: 223
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

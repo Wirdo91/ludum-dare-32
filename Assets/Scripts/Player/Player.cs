@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     public Weapon CurrentWeapon;
     public float MoveSpeed { get; set; }
+    [SerializeField]
+    Sprite[] playerSprites;
+
+    int index = 0;
+    float timer;
 
     StashItem currentItem;
 
@@ -62,6 +67,17 @@ public class Player : MonoBehaviour
         if (currentItem != null && dir != Vector2.zero)
         {
             currentItem.transform.position = this.transform.position + (Vector3)dir * 0.2f;
+        }
+        timer += Time.deltaTime;
+        if (dir != Vector2.zero && (float)(1.0f / 15.0f) <= timer)
+        {
+            index++;
+            if (index == playerSprites.Length)
+            {
+                index = 0;
+            }
+            this.GetComponent<SpriteRenderer>().sprite = playerSprites[index];
+            timer = 0;
         }
     }
 
